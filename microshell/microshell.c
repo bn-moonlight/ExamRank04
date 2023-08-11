@@ -18,6 +18,7 @@ int ft_exec(char **av, int i, int tmp, char **env)
     dup2(tmp, STDIN_FILENO); 
     close(tmp);
     execve(av[0], av, env);
+    return(fd_put("error: cannot execute ", av[0]));
 }
 int main (int ac, char **av, char **env)
 {
